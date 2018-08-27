@@ -1,0 +1,32 @@
+{
+  "name": "mq-poc",
+  "description": "Message Queue Proof of Concept",
+  "version": "0.1.0",
+  "private": false,
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "author": "FusionAlliance",
+  "scripts": {
+    "fixlint": "eslint . --fix",
+    "lint": "eslint .",
+    "develop": "nodemon --exec \"node -r dotenv/config\" --delay 1 ./bin/www.js",
+    "start": "node ./bin/www.js",
+    "heroku-prebuild": "node ./scripts/herokuPreBuildSourceVersion"
+  },
+  "dependencies": {
+    "12factor-config": "^2.0.0",
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.3",
+    "cookie-parser": "^1.4.3",
+    "debug": "^3.1.0",
+    "express": "~4.16.3",
+    "git-rev": "^0.2.1"
+  },
+  "devDependencies": {
+    "dotenv": "^6.0.0",
+    "eslint": "^5.4.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "nodemon": "^1.18.3"
+  }
+}
