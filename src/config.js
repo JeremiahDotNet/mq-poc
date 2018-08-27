@@ -24,6 +24,26 @@ const config = cfg({
     values: ['development', 'production'],
     default: 'production',
   },
+  ampqUrl: {
+    env: 'AMPQ_URL',
+    type: 'string',
+    required: true,
+  },
+  ampqPassword: {
+    env: 'AMPQ_PASSWORD',
+    type: 'string',
+    required: true,
+  },
+  ampqUser: {
+    env: 'AMPQ_USER',
+    type: 'string',
+    required: true,
+  },
+  authorization: {
+    env: 'AUTHORIZATION',
+    type: 'string',
+    required: true,
+  },
 });
 
 module.exports = config;

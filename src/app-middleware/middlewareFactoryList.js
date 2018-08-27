@@ -2,6 +2,7 @@
 
 module.exports = [
   /* eslint-disable global-require */
+  require('./authorizationFactory'),
   require('./bodyParserJsonFactory'),
   require('./bodyParserUrlEncodeFactory'),
   require('./compressionFactory'),
