@@ -24,19 +24,34 @@ const config = cfg({
     values: ['development', 'production'],
     default: 'production',
   },
-  ampqUrl: {
-    env: 'AMPQ_URL',
+  amqpUrl: {
+    env: 'AMQP_URL',
     type: 'string',
     required: true,
   },
-  ampqPassword: {
-    env: 'AMPQ_PASSWORD',
+  amqpPassword: {
+    env: 'AMQP_PASSWORD',
     type: 'string',
     required: true,
   },
-  ampqUser: {
-    env: 'AMPQ_USER',
+  amqpUser: {
+    env: 'AMQP_USER',
     type: 'string',
+    required: true,
+  },
+  amqpHeartbeat: {
+    env: 'AMQP_HEARTBEAT',
+    type: 'integer',
+    required: true,
+  },
+  amqpRestartInterval: {
+    env: 'AMQP_RESTART_INTERVAL',
+    type: 'integer',
+    required: true,
+  },
+  amqpPrefetch: {
+    env: 'AMQP_PREFETCH',
+    type: 'integer',
     required: true,
   },
   authorization: {
