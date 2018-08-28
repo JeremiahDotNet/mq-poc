@@ -22,7 +22,7 @@ function startPublisher(connection) {
       writeInfo('Channel closed');
     });
 
-    while (true) {
+    while (true) { // eslint-disable-line no-constant-condition
       const m = offlineQueue.shift();
       if (!m) {
         break;
