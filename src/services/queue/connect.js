@@ -3,18 +3,18 @@
 const amqp = require('amqplib/callback_api');
 const config = require('../../config');
 const logFunctionFactory = require('../logFunctionFactory');
-const whenConnected = require('./whenConnected');
+const startPublisher = require('./startPublisher');
 
 const logName = 'Queue';
 const writeError = logFunctionFactory.getErrorLogger(logName);
 const writeInfo = logFunctionFactory.getInfoLogger(logName);
 
-function initializeQueue() {
+function connect() {
   const url = `${config.amqpUrl}?heartbeat=${config.amqpHeartbeat}`;
   amqp.connect(url, (err, connection) => {
     if (err) {
       writeError(err);
-      return setTimeout(initializeQueue(), config.amqpRestartInterval);
+      return setTimeout(connect(), config.amqpRestartInterval);
     }
 
     connection.on('error', (connectionError) => {
@@ -25,12 +25,12 @@ function initializeQueue() {
 
     connection.on('close', () => {
       writeInfo('Connection closing');
-      return setTimeout(initializeQueue(), config.amqpRestartInterval);
+      return setTimeout(connect(), config.amqpRestartInterval);
     });
 
-    writeInfo('Connected');
-    return whenConnected(connection);
+    startPublisher(connection);
+    return connection;
   });
 }
 
-module.exports = initializeQueue;
+module.exports = connect;

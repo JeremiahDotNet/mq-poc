@@ -8,7 +8,8 @@ const router = new Router();
 router.post(
   '/enqueue', async (request, response, next) => {
     try {
-      enqueue(request.body);
+      const message = JSON.stringify(request.body);
+      enqueue(message);
       response.status(200);
       response.end();
     } catch (err) {
