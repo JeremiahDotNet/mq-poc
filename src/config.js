@@ -29,16 +29,6 @@ const config = cfg({
     type: 'string',
     required: true,
   },
-  amqpPassword: {
-    env: 'AMQP_PASSWORD',
-    type: 'string',
-    required: true,
-  },
-  amqpUser: {
-    env: 'AMQP_USER',
-    type: 'string',
-    required: true,
-  },
   amqpHeartbeat: {
     env: 'AMQP_HEARTBEAT',
     type: 'integer',
@@ -46,11 +36,6 @@ const config = cfg({
   },
   amqpRestartInterval: {
     env: 'AMQP_RESTART_INTERVAL',
-    type: 'integer',
-    required: true,
-  },
-  amqpPrefetch: {
-    env: 'AMQP_PREFETCH',
     type: 'integer',
     required: true,
   },
