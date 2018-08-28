@@ -25,17 +25,17 @@ const config = cfg({
     default: 'production',
   },
   amqpUrl: {
-    env: 'AMQP_URL',
+    env: 'CLOUDAMQP_URL',
     type: 'string',
     required: true,
   },
   amqpHeartbeat: {
-    env: 'AMQP_HEARTBEAT',
+    env: 'CLOUDAMQP_HEARTBEAT',
     type: 'integer',
     required: true,
   },
   amqpRestartInterval: {
-    env: 'AMQP_RESTART_INTERVAL',
+    env: 'CLOUDAMQP_RESTART_INTERVAL',
     type: 'integer',
     required: true,
   },
