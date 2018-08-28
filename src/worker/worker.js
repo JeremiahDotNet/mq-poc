@@ -8,7 +8,8 @@ const writeInfo = logFunctionFactory.getInfoLogger('Worker Queue');
 let channelWrapper;
 
 function onMessage(message) {
-  writeInfo(`Received: ${JSON.stringify(message)}`);
+  const content = message.content.toString('utf8');
+  writeInfo(`Received: ${content}`);
   channelWrapper.ack(message, false);
 }
 
